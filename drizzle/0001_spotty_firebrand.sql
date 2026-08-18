@@ -1,0 +1,2 @@
+DROP INDEX `bk_slot_guard`;--> statement-breakpoint
+CREATE UNIQUE INDEX `bk_slot_guard` ON `bookings` (`resource_id`,`starts_at`) WHERE status in ('pending','payment_pending','confirmed','checked_in','completed','rescheduled','disputed');

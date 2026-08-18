@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 247 249 251;
+  --surface: 255 255 255;
+  --surface-2: 244 247 250;
+  --border: 226 232 240;
+  --fg: 15 23 42;
+  --muted: 100 116 139;
+  --brand: 22 163 74;      /* energetic green */
+  --brand-fg: 255 255 255;
+  --accent: 14 165 233;    /* sky */
+  --success: 22 163 74;
+  --warning: 217 119 6;
+  --danger: 220 38 38;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+:root.dark {
+  --bg: 8 12 17;
+  --surface: 17 24 32;
+  --surface-2: 23 32 42;
+  --border: 34 45 58;
+  --fg: 230 237 243;
+  --muted: 125 139 153;
+  --brand: 34 197 94;
+  --brand-fg: 5 10 8;
+  --accent: 56 189 248;
+  --success: 34 197 94;
+  --warning: 245 158 11;
+  --danger: 248 113 113;
+}
+
+* { border-color: rgb(var(--border)); }
+
+html { scroll-behavior: smooth; }
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* thin scrollbars */
+::-webkit-scrollbar { height: 8px; width: 8px; }
+::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 8px; }
+
+/* hide scrollbar for horizontal rails */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@layer components {
+  .card { @apply bg-surface border border-border rounded-2xl shadow-card; }
+  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none; }
+  .btn-brand { @apply btn bg-brand text-brand-fg hover:brightness-95 px-4 py-2.5; }
+  .btn-outline { @apply btn border border-border bg-surface hover:bg-surface-2 px-4 py-2.5; }
+  .btn-ghost { @apply btn hover:bg-surface-2 px-3 py-2; }
+  .input { @apply w-full bg-surface border border-border rounded-xl px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand placeholder:text-muted; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-sm font-medium hover:bg-surface-2 transition; }
+  .label { @apply text-sm font-medium text-muted; }
+}
+
+.skeleton { @apply relative overflow-hidden bg-surface-2 rounded-lg; }
+.skeleton::after {
+  content: ""; @apply absolute inset-0;
+  background: linear-gradient(90deg, transparent, rgb(var(--border) / .55), transparent);
+  transform: translateX(-100%); animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }

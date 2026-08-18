@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "turfast",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "turfast",
+      "database_id": "REPLACE_WITH_D1_ID",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "kv_namespaces": [
+    { "binding": "KV", "id": "REPLACE_WITH_KV_ID" }
+  ],
+  "r2_buckets": [
+    { "binding": "MEDIA", "bucket_name": "turfast-media" }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "RESOURCE_LOCK", "class_name": "ResourceLock" },
+      { "name": "GAME_ROOM", "class_name": "GameRoom" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ResourceLock", "GameRoom"] }
+  ]
+}

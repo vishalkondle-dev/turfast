@@ -1,0 +1,48 @@
+{
+  "name": "turfast",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turfast — online turf & sports venue booking marketplace",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx src/db/seed.ts",
+    "db:reset": "rm -f local.db local.db-shm local.db-wal && npm run db:push && npm run db:seed",
+    "test": "vitest run",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:deploy": "opennextjs-cloudflare build && wrangler deploy"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.15.4",
+    "better-auth": "^1.2.7",
+    "drizzle-orm": "^0.44.2",
+    "hono": "^4.7.10",
+    "lucide-react": "^0.469.0",
+    "nanoid": "^5.0.9",
+    "next": "15.5.4",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "^1.0.0",
+    "@types/node": "^22.10.5",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "drizzle-kit": "^0.31.1",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8",
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "session-1786981981383",
+  "startedAt": "2026-08-17T15:53:01.384Z",
+  "cwd": "/Users/vishalkondle/Developer/working/turfast",
+  "context": {},
+  "metrics": {
+    "edits": 0,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-08-17T15:53:01.953Z",
+  "duration": 570
+}
